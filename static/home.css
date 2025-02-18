@@ -1,0 +1,342 @@
+/* Navbar Logo */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #eff0f2; /* Adjust background as needed */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  /* Navbar Logo */
+  .navbar-logo img {
+    width: 50px;
+    height: 50px;
+    margin-left: 140px;
+  }
+  
+  /* Navbar Items Container */
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+  }
+  
+  /* Navbar Collapse (if used) */
+  .navbar-collapse {
+    display: flex;
+    justify-content: center;
+    margin-right: 170px;
+  }
+  
+  /* Navbar Link Styling */
+  .navbar-nav .nav-link {
+    color: rgb(4, 4, 4);
+    text-decoration: none; /* Optional: remove underline */
+  }
+  
+/* Styling for header */
+header {
+    position: relative;
+    text-align: center; /* Centers text */
+    color: white; /* Makes text white */
+}
+
+/* Styling for the image */
+header img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Styling for h1 text */
+header h1 {
+    position: absolute;
+    top: 20%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 50px;
+    font-weight: bold;
+    padding: 10px 20px; 
+    color: black;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+/* Container to hold all cards */
+.card-container {
+    display: flex;
+    gap: 20px; /* Space between cards */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+    white-space: nowrap;
+    padding: 20px;
+}
+
+/* Hide scrollbar but keep functionality */
+.card-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual card styling */
+.card {
+    flex: 0 0 calc(33.333% - 20px); /* Each card takes 1/3 of the container width */
+    background: rgb(142, 136, 136); /* Set background color to black */
+    color: white; /* Set text color to white */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    min-width: 300px; 
+    transition: transform 0.3s ease;
+}
+.card img {
+    width: 100%; /* Ensures image takes full width of the card */
+    height: 250px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 10px; /* Optional: Rounds the corners */
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+/* Responsive: On mobile, show only one card at a time */
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 80%; /* Show only 1 card in full view */
+    }
+}
+
+/* Features Section Styling */
+.features {
+    background: #f8f9fa; /* Light background */
+    padding: 40px;
+    border-radius: 20px;
+    margin: 30px auto;
+    max-width: 95%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.features h2{
+    font-size: 40px;
+}
+
+/* Container for feature boxes */
+.feature-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+}
+
+/* Individual Feature Box */
+.feature-box {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: calc(33.333% - 20px);
+    min-width: 250px;
+    max-width: 300px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    font-size: 30px;
+    color: black;
+    margin-bottom: 15px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: #f8f9fa; /* Light background */
+    padding: 40px;
+    border-radius: 20px; /* Rounded edges */
+    margin: 30px auto;
+    max-width: 95%; /* Keeps it responsive */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; /* Stack h2 and p elements vertically */
+    align-items: center; /* Center align all content */
+    text-align: center;
+    gap: 20px; /* Space between elements */
+}
+
+/* Styling for h2 */
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Space between h2 and p */
+}
+
+/* Container for the p elements */
+.testimonial-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Styling for p */
+.testimonials p {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Each paragraph takes equal width */
+    max-width: 30%; /* Ensures text is not too wide */
+}
+
+.footer {
+    width: 100%;
+    background-color: #1d1d1f; /* Apple-style dark gray */
+    color: white;
+    padding: 5px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 10px auto;
+    padding-bottom: 5px;
+}
+
+/* Footer Columns */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #a1a1a6;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #2997ff; /* Apple-style blue */
+}
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #3a3a3c;
+    padding-top: 10px; /* Adds a little space for readability */
+    font-size: 14px;
+    color: #a1a1a6;
+    background: #1d1d1f;
+    width: 100%; /* Ensures full width */
+}
+
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .feature-box, .testimonial {
+        width: 95%;
+    }
+}
+
+/* About Page */
+.about h2{
+    margin: 20px;
+    text-align: center;
+    font-size: 40px;
+}
+.about p {
+    margin: 20px 50px;
+    text-align: justify; /* Justifies the text */
+    font-weight: 400; /* Makes the text bold */
+}
+
+/* Container for product cards */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+}
+.product h1{
+    text-align: center;
+    padding-top: 10px;
+}
+/* Product Card */
+.product-card {
+    display: block;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Keep text color same */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #f4f4f4;
+}
+
+/* Product Content */
+.product-content {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Product Name */
+.product-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 5px;
+    color: #333;
+}
+
+/* Product Price */
+.product-content .price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 5px 0;
+}
+
+/* Product Description */
+.product-content .description {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+  </head>
+  <body>
+    <h1>{{ product.name }}</h1>
+    <img
+      src="{{ product.image.url }}"
+      alt="{{ product.name }}"
+      style="max-width: 400px"
+    />
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <p><strong>Description:</strong> {{ product.description }}</p>
+
+    <!-- Add to Cart Button -->
+    <form method="POST" action="{% url 'add_to_cart' product.id %}">
+      {% csrf_token %}
+      <button type="submit">Add to Cart</button>
+    </form>
+
+    <!-- Buy Now Button -->
+    <form method="POST" action="{% url 'buy_now' product.id %}">
+      {% csrf_token %}
+      <button type="submit">Buy Now</button>
+    </form>
+
+    <!-- Back to Products Link -->
+    <a href="{% url 'products' %}">Back to Products</a>
+  </body>
+</html>
