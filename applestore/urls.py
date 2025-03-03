@@ -21,11 +21,21 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
      # Core App URLs
     path('', include('core.urls')),
      
      # Products App URLs
     path('products/', include('products.urls')),
+
+     # Users App URLs
+    path('users/', include('users.urls')),
+
+     # Cart App URLs
+    path('cart/', include('cart.urls')),
+
+     # Orders App URLs
+    path('orders/', include('orders.urls')),
 ]
 # Serve media files in development
 if settings.DEBUG:
