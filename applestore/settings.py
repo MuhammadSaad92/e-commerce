@@ -131,6 +131,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Payment GateWay Stripe
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51QyWcNQ0yPH85YfJGSbPKhmkdrZKEtFVl0nfsHKsk3VKY20ODCRGUsPkEzY6rgy3r27aiLIyHOyoQf3hErr1fGph00YCCtQrIi'
+STRIPE_SECRET_KEY = 'sk_test_51QyWcNQ0yPH85YfJyQEx2647ZQodqmhIrD6wRjNa5i0EeDjFtglkV5n4XOnqomp3ZmgUqNq5LHaLT7KH2n0hg2kH001moZkE5g'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
