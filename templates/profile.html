@@ -4,34 +4,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home</title>
+    <title>Profile</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{% static 'home.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div class="container-fluid">
-        <a class="navbar-logo" href="#">
-          <img src="{% static 'pngegg.png' %}" alt="Logo" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-logo" href="{% url "home" %}"><img src="{% static 'pngegg.png' %}" alt="Logo" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
@@ -41,12 +26,7 @@
               <a class="nav-link active" href="{% url 'about' %}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'products' %}"
-                >Products</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Payments</a>
+              <a class="nav-link active" href="{% url 'products' %}">Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="#">Contact Us</a>
@@ -54,28 +34,19 @@
 
             <!-- Account Dropdown -->
             <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-              >
-                Account
-              </a>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Account</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="{% url 'register' %}"
-                    >Register</a
-                  >
+                  <a class="dropdown-item" href="{% url 'register' %}">Register</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="{% url 'login' %}">Login</a>
                 </li>
-                <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="{% url 'profile' %}"
-                    >Profile</a
-                  >
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
                 </li>
               </ul>
             </li>
@@ -94,46 +65,57 @@
 
     <!-- Messages -->
     {% if messages %}
-    <div class="messages" id="message-container">
-      {% for message in messages %}
-      <div
-        class="alert {% if message.tags == 'success' %} alert-success {% elif message.tags == 'error' %} alert-error {% elif message.tags == 'info' %} alert-info {% elif message.tags == 'warning' %} alert-warning {% endif %}"
-      >
-        <!-- Dynamic Icons -->
-        {% if message.tags == 'success' %}
-        <i class="fa-solid fa-circle-check"></i>
-        {% elif message.tags == 'error' %}
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        {% elif message.tags == 'info' %}
-        <i class="fa-solid fa-circle-info"></i>
-        {% elif message.tags == 'warning' %}
-        <i class="fa-solid fa-exclamation-circle"></i>
-        {% endif %} {{ message }}
+      <div class="messages" id="message-container">
+        {% for message in messages %}
+          <div class="alert {% if message.tags == 'success' %} 
+               alert-success
+            {% elif message.tags == 'error' %}           
+               alert-error
+            {% elif message.tags == 'info' %}                          
+               alert-info
+            {% elif message.tags == 'warning' %}                       
+               alert-warning
+            {% endif %}">
+            <!-- Dynamic Icons -->
+            {% if message.tags == 'success' %}
+              <i class="fa-solid fa-circle-check"></i>
+            {% elif message.tags == 'error' %}
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            {% elif message.tags == 'info' %}
+              <i class="fa-solid fa-circle-info"></i>
+            {% elif message.tags == 'warning' %}
+              <i class="fa-solid fa-exclamation-circle"></i>
+            {% endif %} {{ message }}
+          </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
 
-    <!-- Hide messages after 3 seconds -->
-    <script>
-      setTimeout(function () {
-        let messageContainer = document.getElementById("message-container");
-        if (messageContainer) {
-          messageContainer.style.display = "none";
-        }
-      }, 5000); // 5 seconds
-    </script>
-    {% endif %} {% block content %}
+      <!-- Hide messages after 3 seconds -->
+      <script>
+        setTimeout(function () {
+          let messageContainer = document.getElementById('message-container')
+          if (messageContainer) {
+            messageContainer.style.display = 'none'
+          }
+        }, 5000) // 5 seconds
+      </script>
+    {% endif %} 
+    
+    {% block content %}
+      <div class="profile">
+        <h2>User Profile</h2>
+        <p>
+          <strong>Username:</strong> {{ user.username }}
+        </p>
+        <p>
+          <strong>Email:</strong> {{ user.email }}
+        </p>
 
-    <div class="profile">
-      <h2>User Profile</h2>
-      <p><strong>Username:</strong> {{ user.username }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-
-      <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="logout-button">Logout</button>
-      </form>
-    </div>
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="logout-button">Logout</button>
+        </form>
+      </div>
     {% endblock %}
 
     <footer class="footer">
@@ -167,10 +149,6 @@
         <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
       </div>
     </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
