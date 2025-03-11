@@ -60,31 +60,46 @@
     </header>
     <div class="card-container">
       <div class="card">
-        <img src="{% static 'apple-watch.jpg' %}" alt="image1">
+          <a href="{% url 'productDetail' product_id=5 %}">
+              <img src="{% static 'apple-watch.jpg' %}" alt="Apple Watch">
+          </a>
           <h3>Apple Watch</h3>
-          <p>Choose a case.Create your own style.</p>
+          <p>Choose a case. Create your own style.</p>
       </div>
+  
       <div class="card">
-        <img src="{% static 'M3-MacBook-Air.png' %}" alt="image2">
+          <a href="{% url 'productDetail' product_id=6 %}">
+              <img src="{% static 'M3-MacBook-Air.png' %}" alt="MacBook M3 Air">
+          </a>
           <h3>MacBook M3 Air</h3>
           <p>The powerful 8-core CPU running smoothly</p>
       </div>
+  
       <div class="card">
-        <img src="{% static 'vision-pro.png' %}" alt="image3">
+          <a href="{% url 'productDetail' product_id=7 %}">
+              <img src="{% static 'vision-pro.png' %}" alt="Apple Vision Pro">
+          </a>
           <h3>Apple Vision Pro</h3>
           <p>Feature is Here</p>
       </div>
+  
       <div class="card">
-        <img src="{% static 'download.jpg' %}" alt="image4">
+          <a href="{% url 'productDetail' product_id=14 %}">
+              <img src="{% static 'iPhone-SE-4-330x173.png' %}" alt="iPhone SE 4">
+          </a>
           <h3>iPhone SE 4</h3>
           <p>New Design Apple Intelligence</p>
       </div>
+  
       <div class="card">
-        <img src="{% static 'iphone-15-pro-titanium.jpg' %}" alt="image5">
-          <h3>iPhone 15 Pro</h3>
-          <p>Premium Natural Titanium</p>
+          <a href="{% url 'productDetail' product_id=1 %}">
+              <img src="{% static 'Apple-iPhone-16-Pro.webp' %}" alt="iPhone 16 Pro">
+          </a>
+          <h3>iPhone 16 Pro</h3>
+          <p>Now Camera Action Button</p>
       </div>
   </div>
+  
   <!-- Messages -->
   {% if messages %}
   <div class="messages" id="message-container">

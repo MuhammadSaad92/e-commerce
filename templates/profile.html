@@ -110,7 +110,7 @@
         <p>
           <strong>Email:</strong> {{ user.email }}
         </p>
-
+        <a href="{% url 'purchase_history' %}" class="btn btn-primary">View Purchase History</a>
         <form action="{% url 'logout' %}" method="post">
           {% csrf_token %}
           <button type="submit" class="logout-button">Logout</button>

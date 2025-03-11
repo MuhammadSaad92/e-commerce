@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from django.db import IntegrityError
+from django.core.paginator import Paginator
+from orders.models import Order, OrderItem
 
 def register(request):
     if request.method == "POST":
@@ -103,3 +105,9 @@ def profile(request):
         return redirect("profile")  
 
     return render(request, "profile.html", {"user": user})
+
+@login_required
+def purchase_history(request):
+    # Fetch orders for the logged-in user, ordered by most recent
+    orders = Order.objects.filter(user=request.user).order_by('-created_at').prefetch_related('items')
+    return render(request, 'purchase_history.html', {'orders': orders})
